@@ -45,6 +45,7 @@ $(document).ready(function() {
 			'height' : '0',
 			'overflow' : 'hidden',
 			'padding-top' : '0px',
+			'padding-bottom' : '0px',
 		});
 		$('#web-developer').css({
 			'opacity' : '1',
@@ -67,6 +68,7 @@ $(document).ready(function() {
 			'height' : '0',
 			'overflow' : 'hidden',
 			'padding-top' : '0px',
+			'padding-bottom' : '0px',
 		});
 		$('#gamer').css({
 			'opacity' : '1',
@@ -95,6 +97,7 @@ $(document).ready(function() {
 			'height' : '100%',
 			'overflow' : 'unset',
 			'padding-top' : '70px',
+			'padding-bottom' : '5rem',
 		});
 	});
 
