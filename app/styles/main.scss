@@ -31,6 +31,7 @@ body {
 	background: $grey;
 	color: $dark-grey;
 	padding: 0 20px;
+	padding-bottom: 50px !important;
 }
 a {
 	text-decoration: none;
@@ -82,11 +83,16 @@ img {
 	width: 100%;
 	display: block;
 }
+section {
+	padding-top: 70px;
+	transition: .5s opacity;
+	max-width: 1280px;
+	margin: 0 auto;
+}
 
 
 /* COMMON
 ================================================================================= */
-/* underline-animation */
 .underline-animation {
 	position: relative;
 
@@ -109,11 +115,6 @@ img {
 	}
 }
 
-#web-developer,
-#gamer {
-	opacity: 0;
-	transition: .5s opacity;
-}
 
 /* TOP FIXED + CARD
 ================================================================================= */
@@ -171,8 +172,6 @@ img {
 ================================================================================= */
 .item {
 	width: 100%;
-	max-width: 1280px;
-	margin: 0 auto;
 	padding-bottom: 5rem;
 	position: relative;
 	
@@ -189,6 +188,7 @@ img {
 	a {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		padding: 4rem;
 		background: $white;
 		box-shadow: 0px 20px 40px 8px rgba(0,0,0,0.2);
@@ -196,6 +196,15 @@ img {
 		/* img */
 		.img {
 			width: 48%;
+
+			img {
+				border: 2px solid #fff;
+				border-radius: 10px;
+
+				&:first-of-type {
+					border: 2px solid #e2e2e2;
+				}
+			}
 		}
 
 		/* text */
@@ -238,6 +247,89 @@ img {
 		a {
 			flex-direction: row-reverse;
 		}
+	}
+}
+
+
+/* FILTERS + GRID
+================================================================================= */
+/* filters */
+.filters {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+	background: $dark-grey;
+	width: 300px;
+	margin: 0 auto 30px;
+	border-radius: 35px;
+	position: relative;
+	border: 5px solid $dark-grey;
+
+	&:after {
+		content: '';
+		width: 33%;
+		height: 100%;
+		background: $grey;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		border-radius: 35px;
+		-webkit-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+	}
+
+	&.filterLeft {
+		&:after {
+			transform: translateX(-150%);
+		}
+	}
+
+	&.filterCenter {
+		&:after {
+			transform: translateX(-50%);
+		}
+	}
+
+	&.filterRight {
+		&:after {
+			transform: translateX(50%);
+		}
+	}
+
+	button {
+		border: 0;
+		margin: 0;
+		padding: 0;
+		background: 0;
+		font-size: 16px;
+		line-height: 20px;
+		color: $white;
+		cursor: pointer;
+		border-radius: 25px;
+		transition: 0.3s;
+		position: relative;
+		z-index: 1;
+		width: 33.33%;
+
+		&.is-checked {
+			color: $black;
+		}
+	}
+}
+
+/* grid */
+.grid {
+	display: flex;
+	overflow-y: hidden;
+
+	.grid-item,
+	.grid-sizer {
+		width: calc(25% - 15px);
+		margin-bottom: 20px;
+	}
+
+	.gutter-sizer {
+		width: 20px;
 	}
 }
 
