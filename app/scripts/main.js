@@ -21,6 +21,7 @@ $(document).ready(function() {
 			'height' : 'auto',
 			'overflow-y' : 'auto'
 		});
+		$('svg.click-to-open').addClass('svg-animation');
 	});
 	
 	// Anchors scroll to top animation
@@ -162,6 +163,20 @@ $(document).ready(function() {
 
 	$('.filters').on('click', '.filterCenter', function () {
 		$('.filters').removeClass('filterRight filterLeft').addClass('filterCenter');
+	});
+
+	// Pop In - open
+	$('.grid .grid-item').click(function() {
+		$('.popIn').addClass('open');
+
+		// Get url image
+		var urlImg = $(this).find('img').attr('src');
+
+		// Replace content
+		$('.popIn img').attr('src',urlImg);
+	});
+	$('.popIn .close').click(function() {
+		$('.popIn').removeClass('open');
 	});
 
 	// Go top on reload

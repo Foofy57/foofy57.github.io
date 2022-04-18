@@ -83,6 +83,13 @@ img {
 	width: 100%;
 	display: block;
 }
+button {
+	padding: 0;
+	margin: 0;
+	background: 0;
+	border: 0;
+	cursor: pointer;
+}
 section {
 	padding-top: 70px;
 	transition: .5s opacity;
@@ -93,6 +100,7 @@ section {
 
 /* COMMON
 ================================================================================= */
+/* Underline animation */
 .underline-animation {
 	position: relative;
 
@@ -112,6 +120,109 @@ section {
 		&::after {
 			width: 100%;
 		}
+	}
+}
+
+/* click to open */
+.click-to-open {
+	position: absolute;
+	left: 0;
+	top: -58px;
+	width: 67px;
+	transform: rotate(5deg);
+	z-index: 1;
+}
+
+/* click to open animation */
+.svg-animation {
+	animation: neon 1.2s infinite alternate;
+
+	path {
+		fill: none;
+		stroke: $dark-grey;
+		stroke-width: 2px;
+		stroke-dasharray: 32px;
+		stroke-dashoffset: 32px;
+		animation: draw 0.3s ease forwards;
+
+		&:nth-child(1) {
+			animation-delay: 0.5s;
+		}
+		&:nth-child(2) {
+			animation-delay: 0.8s;
+		}
+		&:nth-child(3) {
+			animation-delay: 1.1s;
+		}
+		&:nth-child(4) {
+			animation-delay: 1.4s;
+		}
+		&:nth-child(5) {
+			animation-delay: 1.7s;
+		}
+		&:nth-child(6) {
+			animation-delay: 2s;
+		}
+		&:nth-child(7) {
+			animation-delay: 2.3s;
+		}
+		&:nth-child(8) {
+			animation-delay: 2.6s;
+		}
+		&:nth-child(9) {
+			animation-delay: 2.9s;
+		}
+	}
+}
+
+@keyframes draw {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes neon {
+	0% {
+		filter: drop-shadow(0px 0px 1px #fff)
+		drop-shadow(0px 0px 2px #fff)
+		drop-shadow(0px 0px 5px $grey)
+		drop-shadow(0px 0px 10px $dark-grey)
+	}
+
+	100% {
+		filter: drop-shadow(0px 0px 2px #fff)
+		drop-shadow(0px 0px 4px #fff)
+		drop-shadow(0px 0px 7px $grey)
+		drop-shadow(0px 0px 15px $dark-grey)
+	}
+}
+
+
+/* WEB DEVELOPER
+================================================================================= */
+#web-developer {
+}
+
+
+/* GAMER
+================================================================================= */
+#gamer {
+
+	.item {
+		a {
+			padding: 0;
+		}
+	}
+}
+
+
+/* PAINTER
+================================================================================= */
+#painter {
+	position: relative;
+
+	.click-to-open {
+		top: 77px;
 	}
 }
 
@@ -175,15 +286,6 @@ section {
 	padding-bottom: 5rem;
 	position: relative;
 	
-
-	/* click to open */
-	.click-to-open {
-		position: absolute;
-		left: 0;
-		top: -42px;
-		width: 110px;
-		transform: rotate(5deg);
-	}
 
 	a {
 		display: flex;
@@ -253,7 +355,8 @@ section {
 
 /* FILTERS + GRID
 ================================================================================= */
-/* filters */
+/* Filters
+* -------------------------- */
 .filters {
 	display: flex;
 	justify-content: space-between;
@@ -312,16 +415,17 @@ section {
 		width: 33.33%;
 
 		&.is-checked {
-			color: $black;
+			color: $dark-grey;
 		}
 	}
 }
 
-/* grid */
+/* Grid
+* -------------------------- */
 .grid {
 	display: flex;
-	overflow-y: hidden;
 
+	/* sizer */
 	.grid-item,
 	.grid-sizer {
 		width: calc(25% - 15px);
@@ -331,7 +435,82 @@ section {
 	.gutter-sizer {
 		width: 20px;
 	}
+
+	/* grid item */
+	.grid-item {
+		cursor: pointer;
+		overflow: hidden;
+
+		img {
+			transition: .3s;
+		}
+
+		&:hover  img {
+			transform: scale(1.1);
+		}
+	}
 }
+
+
+/* POP IN
+================================================================================= */
+.popIn {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	background: #ffffff;
+	transition: 0.3s;
+	padding: 5rem;
+	opacity: 0;
+	z-index: -1;
+}
+.popIn.open {
+	opacity: 1;
+	z-index: 5;
+}
+	/* Close button */
+	.popIn button.close {
+		position: absolute;
+		top: 40px;
+		right: 40px;
+		width: 20px;
+		height: 20px;
+	}
+	.popIn button.close::before {
+		content: "";
+		background: rgba(0, 0, 0, 0.75);
+		width: 1px;
+		height: 25px;
+		position: absolute;
+		bottom: -2px;
+		left: 10px;
+		transform: rotate(45deg);
+	}
+	.popIn button.close::after {
+		content: "";
+		background: rgba(0, 0, 0, 0.75);
+		width: 1px;
+		height: 25px;
+		position: absolute;
+		bottom: -2px;
+		left: 10px;
+		transform: rotate(-45deg);
+	}
+
+	/* Img */
+	.popIn img {
+		width: auto;
+		height: max-content;
+		max-height: 100%;
+		max-width: 100%;
+		display: block;
+		margin: 0 auto;
+	}
 
 
 /* HACK INTERNET EXPLORER
