@@ -11,8 +11,10 @@ $(document).ready(function() {
 		* Init Isotope
 		* filters functions
 		* Image loaded
-		* Go top on reload
 		* Effect Switch filters
+		* Projets numbers
+		* Pop in
+		* Go top on reload
 	*/
 
 	// Anchor click change css body overflow
@@ -28,7 +30,7 @@ $(document).ready(function() {
 	$(document).on('click', 'a[href^="#"]', function (event) {
 		event.preventDefault();
 		$('html, body').animate({
-			scrollTop: $($.attr(this, 'href')).offset().top - 0
+			scrollTop: $($.attr(this, 'href')).offset().top - 20
 		}, 500);
 	});
 
@@ -96,7 +98,7 @@ $(document).ready(function() {
 			'opacity' : '1',
 			'height' : '100%',
 			'overflow' : 'unset',
-			'padding-top' : '70px',
+			'padding-top' : '40px',
 			'padding-bottom' : '5rem',
 		});
 	});
@@ -168,8 +170,8 @@ $(document).ready(function() {
 		$('.filters').removeClass('filterRight filterLeft').addClass('filterCenter');
 	});
 
-	// Pop In - open
-	$('.grid .grid-item').click(function() {
+	// Pop In
+	$('.grid-item').click(function() {
 		$('.popIn').addClass('open');
 
 		// Get url image
@@ -178,8 +180,40 @@ $(document).ready(function() {
 		// Replace content
 		$('.popIn img').attr('src',urlImg);
 	});
-	$('.popIn .close').click(function() {
-		$('.popIn').removeClass('open');
+	$('.popIn').click(function() {
+		$(this).removeClass('open');
+	});
+
+	// Projets number
+	// Init controller
+	const controller = new ScrollMagic.Controller();
+
+	// Counter
+	$('.projets-number').each(function () {
+		var $this = $(this),
+		countTo = $this.attr('data-count');
+
+		var scene = new ScrollMagic.Scene({
+			triggerElement: this,
+			triggerHook: 0.8,
+			reverse: false
+		})
+		.addTo(controller)
+		// .addIndicators();
+
+		scene.on('start', function (event) {
+			$({countNum: $this.text()}).animate({countNum: countTo},
+			{
+				duration: 1000,
+				easing: 'linear',
+				step: function () {
+					$this.text(Math.floor(this.countNum));
+				},
+				complete: function () {
+					$this.text(new Intl.NumberFormat('fr-FR').format(this.countNum));
+				}
+			});
+		});
 	});
 
 	// Go top on reload
