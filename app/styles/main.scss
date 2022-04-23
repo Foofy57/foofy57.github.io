@@ -634,6 +634,10 @@ section {
 	body {
 		padding-bottom: 0 !important;
 	}
+	h1 {
+		font-size: 28px;
+		line-height: 34px;
+	}
 
 	.click-to-open {
 		top: -40px;
@@ -655,7 +659,17 @@ section {
 	/* Top fixed + card */
 	.top-fixed {
 		.card {
-			padding: 4rem 1rem 4rem 1rem;
+			padding: 3rem 1rem 3rem 1rem;
+
+			.img {
+				height: 100px;
+				width: 100px;
+			}
+
+			h2 {
+				font-size: 20px;
+				line-height: 33px;
+			}
 		}
 	}
 
@@ -724,6 +738,13 @@ section {
 		button.close {
 			top: 15px;
 			right: 15px;
+		}
+	}
+
+	/* Progress bar */
+	.progress-bar {
+		span {
+			height: 20px;
 		}
 	}
 }
