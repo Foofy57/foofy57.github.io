@@ -74,7 +74,7 @@ ul {
 * -------------------------- */
 .menu {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 800;
     text-transform: uppercase;
 
     &__list {
@@ -86,8 +86,33 @@ ul {
     &__item {
         
         &.--is-active {
+
             .key {
-                display: none;
+                color: var(--color-white);
+
+                &::before,
+                &::after {
+                    background-color: var(--color-dark-grey);
+                }
+
+                &::after {
+                    height: 100%;
+                    top: 0;
+                    width: 100%;
+                }
+
+                span {
+                    transform: translate3d(-2px,-2px,0);
+                }
+
+                &:hover {
+
+                    &::after {
+                        height: 100%;
+                        top: 0;
+                        width: 100%;
+                    }
+                }
             }
         }
     }
