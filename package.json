@@ -4,6 +4,7 @@
     "node": ">=4"
   },
   "dependencies": {
+    "@barba/core": "^2.9.7",
     "gsap": "^3.10.2",
     "imagesloaded": "^5.0.0",
     "isotope-layout": "^3.0.6",

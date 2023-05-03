@@ -4,18 +4,20 @@
 
 */
 
-/* COLORS
-================================================================================= */
-$white: #ffffff;
-$black: #000000;
-$grey: #dedede;
-$dark-grey: #374151;
+html:root {
+    --color-white: #f4f4f4;
+    --color-green: #c5f44d;
+    --color-pink: #ff4980;
+    --color-purple: #833adf;
+    --color-blue: #68e1ea;
+    --color-dark-blue: #0060ff;
+    --color-gold: #c28f2b;
+    --color-dark-grey: #383838;
+    
+    --background-color: var(--color-white);
+    --text-color: var(--color-dark-grey);
 
-
-/* SPACINGS
-================================================================================= */
-$m-1: 0.5rem;
-$m-2: 1rem;
-$m-3: 1.5rem;
-$m-4: 2rem;
-$m-5: 3rem;
+    --page-padding: 7.8125rem 1.25rem 2.8125rem;
+    --page-margin: 1.75rem;
+    --page-margin-mobile: 1rem;
+}
