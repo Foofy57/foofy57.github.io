@@ -1,0 +1,367 @@
+/* TEAM
+================================================================================= */
+
+/* Header
+* -------------------------- */
+.team__header {
+	width: 100%;
+	max-width: 1440px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+    padding: var(--spacer-block) var(--padding-block);
+    position: relative;
+
+	&__title {
+		font-family: var(--font-open-condensed);
+		font-size: var(--font-size-xxl);
+		font-weight: 700;
+		line-height: 77.336%;
+		text-transform: uppercase;
+	}
+
+	&__intro {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		font-family: var(--font-playfair);
+		font-style: italic;
+		font-size: 28px;
+		font-weight: 400;
+		line-height: 145%;
+
+		p {
+			grid-column: 4 / 12;
+		}
+	}
+}
+
+/* People
+* -------------------------- */
+.team__people {
+	width: 100%;
+	max-width: 1440px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 var(--padding-block) 0 var(--padding-block);
+
+	&__row {
+		position: relative;
+		width: 100%;
+		border-bottom: 1px solid var(--color-blue-dark);
+
+		&:first-child {
+			border-top: 1px solid var(--color-blue-dark);
+		}
+
+		&:hover {
+			z-index: 2;
+		}
+
+		&__button {
+			display: grid;
+			grid-template-columns: repeat(12, 1fr);
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			gap: 0 20px;
+			width: 100%;
+			padding: 50px 60px;
+			transition: 0.3s;
+			cursor: pointer;
+
+			&:hover {
+				position: relative;
+				z-index: 2;
+				background-color: var(--color-blue-dark);
+
+				> * {
+					color: var(--color-white);
+				}
+
+				svg {
+
+					circle, path {
+						stroke: var(--color-white);
+					}
+				}
+			}
+
+			&--active {
+				background-color: var(--color-blue-dark);
+				color: var(--color-white);
+
+				.team__people__row__image {
+
+					img {
+						display: block !important;
+					}
+				}
+
+				.team__people__row__icon {
+					
+					&::after {
+						content: '';
+						width: 10px;
+						height: 1px;
+						background-color: var(--color-blue-dark);
+						position: absolute;
+						top: 16px;
+						left: 11px;
+					}
+				}
+	
+				svg {
+	
+					circle {
+						fill: var(--color-white);
+					}
+	
+					path {
+						display: none;
+					}
+				}
+			}
+		}
+
+		&__panel {
+			width: 100%;
+			display: none;
+
+			&__inner {
+				display: grid;
+				grid-template-columns: repeat(12, 1fr);
+				align-items: flex-end;
+				padding: 60px;
+
+				&__column {
+
+					&:first-child {
+						grid-column: 1 / 7;
+					}
+
+					&:last-child {
+						grid-column: 8 / 12;
+					}
+
+					h2 {
+						font-size: 20px;
+						font-style: normal;
+						font-weight: 700;
+						line-height: 150%;
+					}
+
+					p {
+
+						+ h2 {
+							margin-top: 20px;
+						}
+					}
+
+					a {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		&__job {
+			grid-column: 1 / 4;
+			text-transform: uppercase;
+			transition: 0.3s;
+		}
+
+		&__name {
+			grid-column: 4 / 7;
+			transition: 0.3s;
+		}
+
+		&__image {
+			grid-column: 8 / 12;
+			position: relative;
+			z-index: 2;
+			
+			img {
+				display: none;
+				width: 100%;
+				position: absolute;
+				z-index: 2;
+				top: 100%;
+				left: -10px;
+				-webkit-transform: translateY(-50%);
+				transform: translateY(-50%);
+				z-index: 1;
+				border: 1px solid var(--color-black);
+			}
+		}
+
+		&__icon {
+			grid-column: 12 / 12;
+			display: flex;
+			justify-content: flex-end;
+			width: fit-content;
+			position: relative;
+			margin-left: auto;
+
+			svg {
+
+				circle, path {
+					stroke: var(--color-blue-dark);
+					transition: 0.3s;
+				}
+			}
+		}
+	}
+}
+
+/* MEDIA QUERIES - DEVICE < 900px
+================================================================================= */
+@media only screen and (max-width : 900px) {
+	.team__header {
+		gap: 30px;
+
+		&__title {
+			font-size: 110px;
+			font-weight: 700;
+			line-height: 100%;
+		}
+
+		&__intro {
+
+			p {
+				grid-column: 1/13;
+				font-size: 22px;
+				font-style: italic;
+				font-weight: 400;
+				line-height: 145%;
+				letter-spacing: -0.22px;
+			}
+		}
+	}
+
+	.team__people {
+		padding: 0;
+
+		&__row {
+
+			&__button {
+				position: relative;
+				display: flex;
+				align-items: center;
+				gap: 15%;
+				padding: var(--padding-block) var(--spacer-block) var(--padding-block) 20px;
+
+				&:hover {
+					background: none;
+					
+					span {
+						color: var(--color-blue-dark);
+					}
+
+					svg {
+
+						circle {
+							stroke: var(--color-blue-dark);
+						}
+
+						path {
+							stroke: var(--color-blue-dark);
+						}
+					}
+				}
+
+				&--active {
+					background-color: var(--color-blue-dark) !important;
+					color: var(--color-white) !important;
+
+					span {
+						color: var(--color-white) !important;
+					}
+		
+					.team__people__row__icon {
+						
+						&::after {
+							content: '';
+							width: 10px;
+							height: 1px;
+							background-color: var(--color-blue-dark);
+							position: absolute;
+							top: 16px;
+							left: 11px;
+						}
+					}
+		
+					svg {
+		
+						circle {
+							fill: var(--color-white);
+						}
+		
+						path {
+							display: none;
+						}
+					}
+				}
+			}
+
+			&__job {
+				width: 100%;
+				max-width: 30%;
+			}
+
+			&__name {
+				width: 100%;
+				max-width: 45%;
+			}
+
+			&__image {
+				display: none;
+			}
+
+			&__icon {
+				position: absolute;
+				right: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			&__panel {
+				padding: 0 20px;
+
+				.team__people__row__image {
+					display: block;
+					margin-top: 30px;
+
+					img {
+						display: block;
+						position: static;
+						transform: none;
+					}
+				}
+
+				&__inner {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					padding: var(--padding-block) 0;
+
+					&__column {
+						width: 100%;
+
+						&:last-child {
+							margin-top: 20px;
+						}
+						
+						h2,
+						> * {
+							font-size: 16px;
+							font-style: normal;
+							line-height: 145%;
+						}
+					}
+				}
+			}
+		}
+	}
+}

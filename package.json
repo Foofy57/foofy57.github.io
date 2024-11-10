@@ -4,8 +4,6 @@
     "node": ">=4"
   },
   "dependencies": {
-    "@barba/core": "^2.10.3",
-    "barba.js": "^1.0.0",
     "gsap": "file:gsap-bonus.tgz",
     "jquery": "^3.4.1",
     "swiper": "^11.1.4"
