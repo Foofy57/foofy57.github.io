@@ -488,8 +488,8 @@ body:has(main[data-barba-namespace="default"]) .block-header {
     }
 
     .img-overflow {
-        max-height: calc(100vh - 25vh - var(--space-between-xl) - var(--padding-block) + 1px);
-        min-height: 400px;
+        max-height: calc(100dvh - 25dvh - var(--space-between-xl) - var(--padding-block) + 1px);
+        min-height: 270px;
     }
 }
 
@@ -586,7 +586,7 @@ body:has(main[data-barba-namespace="default"]) .block-header {
                 &::before {
                     content: '';
                     display: block;
-                    height: 100vh;
+                    height: 100dvh;
                     width: 100vw;
                     background-color: var(--color-black);
                     position: fixed;
@@ -664,6 +664,10 @@ body:has(main[data-barba-namespace="default"]) .block-header {
         &__container {
             display: flex;
             flex-direction: column;
+        }
+
+        .img-overflow {
+            max-width: 250px;
         }
     }
 }

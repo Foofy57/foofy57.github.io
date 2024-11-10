@@ -206,18 +206,18 @@ function init() {
                 }, 10);
     
                 if (current.namespace === 'home' && next.namespace === 'default') {
-                    gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, { height: '100vh' }, { height: '25vh' });
-                    gsap.fromTo('.block-header', 1.5, { height: '100vh' }, { height: '25vh' });
+                    gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, { height: '100dvh' }, { height: '25dvh' });
+                    gsap.fromTo('.block-header', 1.5, { height: '100dvh' }, { height: '25dvh' });
                 }
     
                 if (current.namespace === 'default' && next.namespace === 'home') {
-                    gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, { height: '25vh' }, { height: '100vh' });
-                    gsap.fromTo('.block-header', 1.5, { height: '25vh' }, { height: '100vh' });
+                    gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, { height: '25dvh' }, { height: '100dvh' });
+                    gsap.fromTo('.block-header', 1.5, { height: '25dvh' }, { height: '100dvh' });
                 }
     
                 if (current.namespace === 'default' && next.namespace === 'default') {
-                    gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, { height: '25vh' }, { height: '25vh' });
-                    gsap.fromTo('.block-header', 1.5, { height: '25vh' }, { height: '25vh' });
+                    gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, { height: '25dvh' }, { height: '25dvh' });
+                    gsap.fromTo('.block-header', 1.5, { height: '25dvh' }, { height: '25dvh' });
                 }
 
                 drawSvg();
