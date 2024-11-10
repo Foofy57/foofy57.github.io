@@ -140,11 +140,13 @@ function init() {
           revealBlock();
         }
         scrollTriggerHeader();
-        gsap.fromTo('body', 0.3, {
-          opacity: '0'
-        }, {
-          opacity: '1'
-        });
+        setTimeout(function () {
+          gsap.fromTo('body', 0.3, {
+            opacity: '0'
+          }, {
+            opacity: '1'
+          });
+        }, 300);
         gsap.fromTo('.block-header', 0.7, {
           x: -150
         }, {
