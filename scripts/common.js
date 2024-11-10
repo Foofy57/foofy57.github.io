@@ -131,12 +131,12 @@ function init() {
         var header = $('.block-header');
         var mainheader = $('.mainHeader:not(.mainHeader--hidden)');
         if (next.namespace === 'default') {
-          header.css('height', '25vh');
-          mainheader.css('height', '25vh');
+          header.css('height', '25dvh');
+          mainheader.css('height', '25dvh');
           revealBlockDefault();
         } else if (next.namespace === 'home') {
-          header.css('height', '100vh');
-          mainheader.css('height', '100vh');
+          header.css('height', '100dvh');
+          mainheader.css('height', '100dvh');
           revealBlock();
         }
         scrollTriggerHeader();
