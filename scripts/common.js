@@ -131,12 +131,12 @@ function init() {
         var header = $('.block-header');
         var mainheader = $('.mainHeader:not(.mainHeader--hidden)');
         if (next.namespace === 'default') {
-          header.css('height', '25dvh');
-          mainheader.css('height', '25dvh');
+          header.css('height', '25svh');
+          mainheader.css('height', '25svh');
           revealBlockDefault();
         } else if (next.namespace === 'home') {
-          header.css('height', '100dvh');
-          mainheader.css('height', '100dvh');
+          header.css('height', '100svh');
+          mainheader.css('height', '100svh');
           revealBlock();
         }
         scrollTriggerHeader();
@@ -199,38 +199,38 @@ function init() {
         }, 10);
         if (current.namespace === 'home' && next.namespace === 'default') {
           gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, {
-            height: '100dvh'
+            height: '100svh'
           }, {
-            height: '25dvh'
+            height: '25svh'
           });
           gsap.fromTo('.block-header', 1.5, {
-            height: '100dvh'
+            height: '100svh'
           }, {
-            height: '25dvh'
+            height: '25svh'
           });
         }
         if (current.namespace === 'default' && next.namespace === 'home') {
           gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, {
-            height: '25dvh'
+            height: '25svh'
           }, {
-            height: '100dvh'
+            height: '100svh'
           });
           gsap.fromTo('.block-header', 1.5, {
-            height: '25dvh'
+            height: '25svh'
           }, {
-            height: '100dvh'
+            height: '100svh'
           });
         }
         if (current.namespace === 'default' && next.namespace === 'default') {
           gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, {
-            height: '25dvh'
+            height: '25svh'
           }, {
-            height: '25dvh'
+            height: '25svh'
           });
           gsap.fromTo('.block-header', 1.5, {
-            height: '25dvh'
+            height: '25svh'
           }, {
-            height: '25dvh'
+            height: '25svh'
           });
         }
         drawSvg();
