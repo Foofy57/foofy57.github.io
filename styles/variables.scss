@@ -1,64 +1,40 @@
-/* VARIABLES
-================================================================================= */
+/* SUMMARY
 
-:root {
-    
-    /* Webfonts
-	* -------------------------- */
-    --font-playfair: 'Playfair Display', serif;
-    --font-open: 'Open Sans', sans-serif;
-    --font-open-condensed: 'Open Sans Condensed';
+.VARIABLES
 
-    /* Font sizes
-	* -------------------------- */
-    --font-size-l: clamp(30px, 7vw, 75px);
-    --font-size-xl: clamp(40px, 5.6vw, 100px);
-    --font-size-xxl: clamp(40px, 15vw, 214px);
+*/
 
-	/* Colors
-	* -------------------------- */
-    --color-white: #ffffff;
+html:root {
+    --color-true-white: #ffffff;
+    --color-white: #f4f4f4;
     --color-black: #000000;
-    --color-blue-dark: #0F0F23;
-    --color-pink: #DF0C35;
-    --menu-white: #ffffff;
-    --menu-pink: #DF0C35;
+    --color-green: #c5f44d;
+    --color-pink: #ff4980;
+    --color-purple: #833adf;
+    --color-blue: #68e1ea;
+    --color-dark-blue: #0060ff;
+    --color-gold: #c28f2b;
+    --color-light-grey: #767676;
+    --color-dark-grey: #383838;
 
-    /* Paddings
-	* -------------------------- */
-    --padding-block: 60px;
-    --spacer-block: 60px;
+    --font-size-xs: 12px;
+    --font-size-s: 14px;
+    --font-size-m: 16px;
+    --font-size-l: 24px;
 
-    /* Heights
-	* -------------------------- */
-    --height-mainHeader: 100px;
-    --height-block: calc(100dvh - var(--height-mainHeader));
-    --height-mainFooter: 92px;
+    --font-weight-bold: 800;
 
-    /* Max Width Block
-	* -------------------------- */
-    --max-w-block: 1320px;
+    --space-between-xs: 6px;
+    --space-between-s: 10px;
+    --space-between-m: 20px;
+    --space-between-l: 40px;
+    --space-between-xl: 60px;
+    --space-between-block: 80px;
 
-    /* Darkmode
-	* -------------------------- */
-    .darkMode {
-		--color-white: #0F0F23;
-		--color-black: #000000;
-		--color-blue-dark: #ffffff;
-		--color-pink: #DF0C35;
-	}
+    --padding-block: 20px;
 
-    /* MEDIA QUERIES - DEVICE < 900px
-    ================================================================================= */
-    @media only screen and (max-width : 900px)  {
-        
-        /* Paddings
-        * -------------------------- */
-        --padding-block: 20px;
-        --spacer-block: 40px;
+    --max-width-container: 1120px;
+    --max-width-container-xs: 700px;
 
-         /* Font sizes
-        * -------------------------- */
-        --font-size-xxl: clamp(40px, 40vw, 125px);
-    }
+    --mainHeader-height: 80px;
 }
