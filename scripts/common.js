@@ -2,7 +2,7 @@
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, DrawSVGPlugin);
 function drawSvg() {
-  $('.block-header path').each(function () {
+  $('.mainHeader .logo path').each(function () {
     var element = $(this);
     gsap.fromTo(element, {
       drawSVG: '0%'
@@ -13,7 +13,7 @@ function drawSvg() {
       ease: 'power1.inOut',
       onStart: function onStart() {
         setTimeout(function () {
-          element.parents('.block-header').addClass('block-header--fill');
+          element.parents('.mainHeader .logo').addClass('logo--fill');
         }, 900);
       }
     });
@@ -25,13 +25,15 @@ function createScrollSmoother() {
     effects: true,
     // normalizeScroll: true,
     ignoreMobileResize: true,
-    smoothTouch: 0.1
-    // onFocusIn: () => false,
+    smoothTouch: 0.1,
+    onFocusIn: function onFocusIn() {
+      return true;
+    }
   });
 }
 function scrollTriggerHeader() {
   ScrollTrigger.matchMedia({
-    '(min-width: 800px)': function minWidth800px() {
+    '(min-width: 801px)': function minWidth801px() {
       ScrollTrigger.create({
         trigger: '.mainHeader:not(.mainHeader--hidden) .menu',
         start: 'top top',
@@ -46,7 +48,7 @@ function scrollTriggerHeader() {
         }
       });
     },
-    '(max-width: 799px)': function maxWidth799px() {
+    '(max-width: 800px)': function maxWidth800px() {
       ScrollTrigger.create({
         trigger: '.mainHeader:not(.mainHeader--hidden) .menu',
         start: 'bottom top',
@@ -75,7 +77,6 @@ function revealBlock() {
       scrollTrigger: {
         trigger: this,
         start: 'top-=100 bottom',
-        // lorsque le bas de la fenêtre atteint le haut du block
         end: 'top+=200',
         scrub: true
       }
@@ -128,15 +129,12 @@ function init() {
         var $mainHeader = $('.mainHeader:not(.mainHeader--hidden)');
         var $bodyContainer = $('body');
         $bodyContainer.prepend($mainHeader.clone().addClass('mainHeader--hidden'));
-        var header = $('.block-header');
         var mainheader = $('.mainHeader:not(.mainHeader--hidden)');
         if (next.namespace === 'default') {
-          header.css('height', '25dvh');
-          mainheader.css('height', '25dvh');
+          mainheader.css('height', '25svh');
           revealBlockDefault();
         } else if (next.namespace === 'home') {
-          header.css('height', '100dvh');
-          mainheader.css('height', '100dvh');
+          mainheader.css('height', '100svh');
           revealBlock();
         }
         scrollTriggerHeader();
@@ -147,8 +145,8 @@ function init() {
             opacity: '1'
           });
         }, 300);
-        gsap.fromTo('.block-header', 0.7, {
-          x: -150
+        gsap.fromTo('.mainHeader .logo', 1, {
+          x: -600
         }, {
           x: 0
         });
@@ -199,38 +197,23 @@ function init() {
         }, 10);
         if (current.namespace === 'home' && next.namespace === 'default') {
           gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, {
-            height: '100dvh'
+            height: '100svh'
           }, {
-            height: '25dvh'
-          });
-          gsap.fromTo('.block-header', 1.5, {
-            height: '100dvh'
-          }, {
-            height: '25dvh'
+            height: '25svh'
           });
         }
         if (current.namespace === 'default' && next.namespace === 'home') {
           gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, {
-            height: '25dvh'
+            height: '25svh'
           }, {
-            height: '100dvh'
-          });
-          gsap.fromTo('.block-header', 1.5, {
-            height: '25dvh'
-          }, {
-            height: '100dvh'
+            height: '100svh'
           });
         }
         if (current.namespace === 'default' && next.namespace === 'default') {
           gsap.fromTo('.mainHeader:not(.mainHeader--hidden)', 1.5, {
-            height: '25dvh'
+            height: '25svh'
           }, {
-            height: '25dvh'
-          });
-          gsap.fromTo('.block-header', 1.5, {
-            height: '25dvh'
-          }, {
-            height: '25dvh'
+            height: '25svh'
           });
         }
         drawSvg();
@@ -292,4 +275,20 @@ function init() {
 }
 $(document).ready(function () {
   init();
+  function setEqualHeightTitles() {
+    if (window.matchMedia('(min-width: 801px)').matches) {
+      $('.threeBlocks').each(function () {
+        var maxHeight = 0;
+        $(this).find('.threeBlocks__title').each(function () {
+          $(this).css('height', 'auto');
+          maxHeight = Math.max(maxHeight, $(this).outerHeight());
+        });
+        $(this).find('.threeBlocks__title').css('height', maxHeight);
+      });
+    } else {
+      $('.threeBlocks__title').css('height', 'auto');
+    }
+  }
+  setEqualHeightTitles();
+  $(window).on('resize', setEqualHeightTitles);
 });
