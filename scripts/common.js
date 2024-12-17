@@ -50,6 +50,7 @@ function scrollTriggerHeader() {
     },
     '(max-width: 800px)': function maxWidth800px() {
       ScrollTrigger.create({
+        markers: true,
         trigger: '.mainHeader:not(.mainHeader--hidden) .menu',
         start: 'bottom top',
         end: '+=0',
@@ -223,6 +224,7 @@ function init() {
         } else if (next.namespace === 'home') {
           revealBlock();
         }
+        var smoother = createScrollSmoother();
         ScrollTrigger.refresh();
       },
       after: function after(_ref4) {
