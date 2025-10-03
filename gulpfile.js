@@ -1,17 +1,9 @@
-<<<<<<< HEAD
 // generated on 2022-03-29 using generator-webapp 4.0.0-6
-=======
-// generated on 2024-06-19 using generator-webapp 4.0.0-9
->>>>>>> c054ef17c8b6f6600d45f10332baed773e36f721
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync');
 const del = require('del');
 const autoprefixer = require('autoprefixer');
-<<<<<<< HEAD
-=======
-const sass = require('gulp-sass')(require('sass'));
->>>>>>> c054ef17c8b6f6600d45f10332baed773e36f721
 const cssnano = require('cssnano');
 const { argv } = require('yargs');
 
@@ -25,7 +17,6 @@ const isTest = process.env.NODE_ENV === 'test';
 const isDev = !isProd && !isTest;
 
 function styles() {
-<<<<<<< HEAD
   return src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.if(!isProd, $.sourcemaps.init()))
@@ -39,86 +30,40 @@ function styles() {
     ]))
     .pipe($.if(!isProd, $.sourcemaps.write()))
     .pipe(dest('.tmp/styles'))
-=======
-  return src('app/styles/*.scss', {
-    sourcemaps: !isProd,
-  })
-    .pipe($.plumber())
-    .pipe(sass.sync({
-      outputStyle: 'expanded',
-      precision: 10,
-      includePaths: ['.']
-    }).on('error', sass.logError))
-    .pipe($.postcss([
-      autoprefixer()
-    ]))
-    .pipe(dest('.tmp/styles', {
-      sourcemaps: !isProd,
-    }))
->>>>>>> c054ef17c8b6f6600d45f10332baed773e36f721
     .pipe(server.reload({stream: true}));
 };
 
 function scripts() {
-<<<<<<< HEAD
   return src('app/scripts/**/*.js')
     .pipe($.plumber())
     .pipe($.if(!isProd, $.sourcemaps.init()))
     .pipe($.babel())
     .pipe($.if(!isProd, $.sourcemaps.write('.')))
     .pipe(dest('.tmp/scripts'))
-=======
-  return src('app/scripts/**/*.js', {
-    sourcemaps: !isProd,
-  })
-    .pipe($.plumber())
-    .pipe($.babel())
-    .pipe(dest('.tmp/scripts', {
-      sourcemaps: !isProd ? '.' : false,
-    }))
->>>>>>> c054ef17c8b6f6600d45f10332baed773e36f721
     .pipe(server.reload({stream: true}));
 };
 
 
-<<<<<<< HEAD
 const lintBase = files => {
   return src(files)
     .pipe($.eslint({ fix: true }))
-=======
-const lintBase = (files, options) => {
-  return src(files)
-    .pipe($.eslint(options))
->>>>>>> c054ef17c8b6f6600d45f10332baed773e36f721
     .pipe(server.reload({stream: true, once: true}))
     .pipe($.eslint.format())
     .pipe($.if(!server.active, $.eslint.failAfterError()));
 }
 function lint() {
-<<<<<<< HEAD
   return lintBase('app/scripts/**/*.js')
     .pipe(dest('app/scripts'));
 };
 function lintTest() {
   return lintBase('test/spec/**/*.js')
     .pipe(dest('test/spec'));
-=======
-  return lintBase('app/scripts/**/*.js', { fix: true })
-    .pipe(dest('app/scripts'));
-};
-function lintTest() {
-  return lintBase('test/spec/**/*.js');
->>>>>>> c054ef17c8b6f6600d45f10332baed773e36f721
 };
 
 function html() {
   return src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-<<<<<<< HEAD
     .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
-=======
-    // .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
->>>>>>> c054ef17c8b6f6600d45f10332baed773e36f721
     .pipe($.if(/\.css$/, $.postcss([cssnano({safe: true, autoprefixer: false})])))
     .pipe($.if(/\.html$/, $.htmlmin({
       collapseWhitespace: true,
@@ -211,13 +156,8 @@ function startTestServer() {
     }
   });
 
-<<<<<<< HEAD
-  watch('app/scripts/**/*.js', scripts);
-  watch(['test/spec/**/*.js', 'test/index.html']).on('change', server.reload);
-=======
   watch('test/index.html').on('change', server.reload);
   watch('app/scripts/**/*.js', scripts);
->>>>>>> c054ef17c8b6f6600d45f10332baed773e36f721
   watch('test/spec/**/*.js', lintTest);
 }
 

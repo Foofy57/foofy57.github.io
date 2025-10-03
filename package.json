@@ -4,7 +4,6 @@
     "node": ">=4"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@barba/core": "^2.9.7",
     "gsap": "^3.13.0",
     "imagesloaded": "^5.0.0",
@@ -12,23 +11,12 @@
     "jquery": "^3.4.1",
     "scrollmagic": "^2.0.8",
     "slick-carousel": "^1.8.1"
-=======
-    "@barba/core": "^2.10.3",
-    "barba.js": "^1.0.0",
-    "gsap": "^3.13.0",
-    "jquery": "^3.4.1",
-    "swiper": "^11.1.4"
->>>>>>> c054ef17c8b6f6600d45f10332baed773e36f721
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "autoprefixer": "^9.5.1",
     "browser-sync": "^2.26.5",
-<<<<<<< HEAD
-=======
-    "chai": "^5.1.1",
->>>>>>> c054ef17c8b6f6600d45f10332baed773e36f721
     "cross-env": "^5.2.0",
     "cssnano": "^4.1.10",
     "del": "^4.1.1",
@@ -43,21 +31,12 @@
     "gulp-load-plugins": "^1.6.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
-<<<<<<< HEAD
     "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "gulp-useref": "^3.1.6",
     "mocha": "^6.1.4",
-=======
-    "gulp-sass": "^5.1.0",
-    "gulp-size": "^3.0.0",
-    "gulp-uglify": "^3.0.2",
-    "gulp-useref": "^3.1.6",
-    "mocha": "^6.2.3",
-    "sass": "^1.58.3",
->>>>>>> c054ef17c8b6f6600d45f10332baed773e36f721
     "yargs": "13.2.4"
   },
   "scripts": {
