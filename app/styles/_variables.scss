@@ -5,19 +5,12 @@
 */
 
 html:root {
-    --color-white: #f4f4f4;
-    --color-green: #c5f44d;
-    --color-pink: #ff4980;
-    --color-purple: #833adf;
-    --color-blue: #68e1ea;
-    --color-dark-blue: #0060ff;
-    --color-gold: #c28f2b;
-    --color-dark-grey: #383838;
-    
-    --background-color: var(--color-white);
-    --text-color: var(--color-dark-grey);
+    --color-white: #FFFFFF;
+    --color-orange: #FF6510;
+    --color-blue-2: #39A8E5;
+    --color-blue: #003DA5;
+    --color-turquoise: #4BC9AB;
 
-    --page-padding: 7.8125rem 1.25rem 2.8125rem;
-    --page-margin: 1.75rem;
-    --page-margin-mobile: 1rem;
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-salome: 'Salome', sans-serif;
 }
