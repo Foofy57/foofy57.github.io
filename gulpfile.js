@@ -18,7 +18,7 @@ const isTest = process.env.NODE_ENV === 'test';
 const isDev = !isProd && !isTest;
 
 function styles() {
-  return src('app/styles/*.scss', {
+  return src('styles/*.scss', {
     sourcemaps: !isProd,
   })
     .pipe($.plumber())
@@ -30,9 +30,7 @@ function styles() {
     .pipe($.postcss([
       autoprefixer()
     ]))
-    .pipe(dest('.tmp/styles', {
-      sourcemaps: !isProd,
-    }))
+    .pipe(dest('styles', { sourcemaps: !isProd }))
     .pipe(server.reload({stream: true}));
 };
 
