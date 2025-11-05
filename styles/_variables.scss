@@ -5,12 +5,40 @@
 */
 
 html:root {
-    --color-white: #FFFFFF;
-    --color-orange: #FF6510;
-    --color-blue-2: #39A8E5;
-    --color-blue: #003DA5;
-    --color-turquoise: #4BC9AB;
 
+    // Colors
+    --color-light-grey: #F5F5F5;
+    --color-light-grey-2: #b3b3b3;
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-green: #247c37;
+
+    // Fonts
     --font-montserrat: 'Montserrat', sans-serif;
-    --font-salome: 'Salome', sans-serif;
+    --font-alpha: 'Alfa Slab One', serif;
+    --font-raleway: 'Raleway', sans-serif;
+    
+    // Spacings
+    --space-between-xs: 4px;
+    --space-between-sm: 8px;
+    --space-between-md: 16px;
+    --space-between-lg: 24px;
+    --space-between-xl: 32px;
+    --space-between-2xl: 64px;
+    --space-between-3xl: 96px;
+
+    // Paddings
+    --padding-xs: 4px;
+    --padding-sm: 8px;
+    --padding-md: 16px;
+    --padding-lg: 24px;
+    --padding-xl: 32px;
+    --padding-2xl: 64px;
+    --padding-3xl: 96px;
+
+    // Max-width block
+    --max-w-block: 1280px;
+
+    // Height mainHeader
+    --height-mainHeader: 38px;
 }
