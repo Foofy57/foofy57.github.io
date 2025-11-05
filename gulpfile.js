@@ -30,9 +30,7 @@ function styles() {
     .pipe($.postcss([
       autoprefixer()
     ]))
-    .pipe(dest('.tmp/styles', {
-      sourcemaps: !isProd,
-    }))
+    .pipe(dest('styles', { sourcemaps: !isProd }))
     .pipe(server.reload({stream: true}));
 };
 
